@@ -1,0 +1,28 @@
+{
+  "name": "apis",
+  "version": "1.0.0",
+  "description": "Bootcampt Homework Using NodeJS and API packages",
+  "main": "main.js",
+  "scripts": {
+    "test": "n/a"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blambillotte/node-APIs.git"
+  },
+  "keywords": [
+    "Node",
+    "API",
+    "Spotify",
+    "Twitter"
+  ],
+  "author": "Ben Lambillotte",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blambillotte/node-APIs/issues"
+  },
+  "homepage": "https://github.com/blambillotte/node-APIs#readme",
+  "dependencies": {
+    "node-spotify-api": "^1.0.7"
+  }
+}
