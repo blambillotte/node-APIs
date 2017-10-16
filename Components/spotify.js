@@ -12,7 +12,7 @@ const searchSpotify = (queryStr) => {
 
   spotify.search({ type: 'track', query: queryStr }, function(err, data) {
     if (err) {
-      return console.log('Error occurred: ' + err);
+      return console.log(`\nLiri Could Not Complete This Request: \n${colors.red(err)}`);
     }
 
     //Grab first simple reponses
