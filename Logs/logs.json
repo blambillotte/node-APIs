@@ -1,0 +1,12 @@
+{
+  "logs": [
+    {
+      "command": "spotify-this-song",
+      "searchString": "We are the champions"
+    },
+    {
+      "command": "spotify-this-song",
+      "searchString": "Clarinet"
+    }
+  ]
+}

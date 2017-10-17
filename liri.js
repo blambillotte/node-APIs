@@ -1,26 +1,42 @@
 const spotifyImport = require('./Components/spotify.js');
 const twitterImport = require('./Components/twitter.js');
+const omdbImport = require('./Components/omdb.js');
+const logger = require('./Components/logger.js');
+const colors = require('colors');
 
 
-//Listen for user input on type of API to call
+//Recieve user input
 const searchType = process.argv[2];
-const searchString = process.argv[3];
+let searchString = '';
+
+for (let i = 3; i < process.argv.length; i++) {
+  searchString += `${process.argv[i]} `;
+}
 
 //Both input paremeters must be present to search the api
-if (searchType) {
-  switch (searchType) {
-    case 'spotify-this-song':
+switch (searchType) {
+  case 'spotify-this-song':
+    //Call Spotify API
     spotifyImport.searchSpotify(searchString);
-    break;
+    //Log the search
+    logger.updateLogs(searchType, searchString);
+  break;
 
-    case 'my-tweets':
-    twitterImport.searchTwitter();
-    break;
+  case 'my-tweets':
+  twitterImport.searchTwitter();
+  break;
 
-    default:
-    console.log('I do not know that Command');
-  }
+  case 'movie-this':
+    if (searchString) {
+      omdbImport.searchOMDB(searchString);
+    } else {
+      //If a user doesn't search for anything
+      omdbImport.searchOMDB('Mr. Nobody');
+    }
+  break;
 
-} else {
-  console.log('Not enough paremeters added');
+  default:
+  console.log(`
+    🚨  🚨  🚨  🚨
+    ${'Available Commands:'.green.bold} ${'(my-tweets, spotify-this-song, movie-this, do-what-it-says)'.red.bold}`);
 }

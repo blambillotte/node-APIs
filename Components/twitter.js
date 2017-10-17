@@ -11,6 +11,7 @@ const twitter = new Twitter({
   access_token_secret: importKeys.twitter.tokenSecret
 });
 
+//Set a reference to my test twitter feed: could be made into an input param 
 const params = {screen_name: 'ben_test_dev'};
 
 const searchTwitter = () => {
