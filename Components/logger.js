@@ -12,12 +12,12 @@ const updateLogs = (command, searchString) => {
 
     //Grab the whole JSON object and parse it
     let parsedData = JSON.parse(data);
+
     //Create a new Log entry
     let newLog = { command: command.trim(), searchString: searchString.trim() };
+
     //Add the new entry to the begining in the array of objects
     parsedData.logs.unshift(newLog);
-
-    console.log(parsedData);
 
     //Re-write file with new data
     saveLog(parsedData);

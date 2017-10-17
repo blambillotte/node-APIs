@@ -2,6 +2,7 @@ const spotifyImport = require('./Components/spotify.js');
 const twitterImport = require('./Components/twitter.js');
 const omdbImport = require('./Components/omdb.js');
 const logger = require('./Components/logger.js');
+const logReader = require('./Components/read-log.js');
 const colors = require('colors');
 
 
@@ -24,15 +25,23 @@ switch (searchType) {
 
   case 'my-tweets':
   twitterImport.searchTwitter();
+  //Log the search
+  logger.updateLogs(searchType, 'N/A');
   break;
 
   case 'movie-this':
     if (searchString) {
       omdbImport.searchOMDB(searchString);
+      //Log the search
+      logger.updateLogs(searchType, searchString);
     } else {
       //If a user doesn't search for anything
       omdbImport.searchOMDB('Mr. Nobody');
     }
+  break;
+
+  case 'do-what-it-says':
+  logReader.readLog();
   break;
 
   default:
