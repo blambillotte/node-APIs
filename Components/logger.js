@@ -1,9 +1,12 @@
 const fs = require('fs');
+const path = require('path');
 
+//Set path to the Logs
+const ABSOLUTE_LOG_PATH = path.resolve('./Logs/logs.json');
 
 const updateLogs = (command, searchString) => {
 
-  fs.readFile("Logs/logs.json", "utf8", function(error, data) {
+  fs.readFile(ABSOLUTE_LOG_PATH, "utf8", function(error, data) {
 
     // If the code experiences any errors it will log the error to the console.
     if (error) {
@@ -29,7 +32,7 @@ function saveLog(logs) {
 
   let stringLogs = JSON.stringify(logs);
 
-  fs.writeFile('Logs/logs.json', stringLogs, (err) => {
+  fs.writeFile(ABSOLUTE_LOG_PATH, stringLogs, (err) => {
   if (err) throw err;
   });
 

@@ -1,9 +1,13 @@
 const fs = require('fs');
+const path = require('path');
 
+//Set path to the Logs
+const ABSOLUTE_LOG_PATH = path.resolve('./Logs/logs.json');
 
 const readLog = () => {
 
-  fs.readFile("Logs/logs.json", "utf8", function(error, data) {
+
+  fs.readFile(ABSOLUTE_LOG_PATH, function(error, data) {
 
     // If the code experiences any errors it will log the error to the console.
     if (error) {
