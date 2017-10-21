@@ -18,7 +18,7 @@ const readLog = () => {
     let parsedData = JSON.parse(data);
 
 
-    console.log(`\n Run this Command in your terminal: $`.green.bold, `node liri ${parsedData.logs[0].command} ${parsedData.logs[0].searchString}`.red);
+    console.log(`\n Need inspriation? Run this Command in your terminal: $`.green.bold, `node liri ${parsedData.logs[0].command} ${parsedData.logs[0].searchString}`.red);
 
   });
 };

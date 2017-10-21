@@ -16,7 +16,7 @@ const updateLogs = (command, searchString) => {
     //Grab the whole JSON object and parse it
     let parsedData = JSON.parse(data);
 
-    //Create a new Log entry
+    //Create a new Log entry, clearning whitespace
     let newLog = { command: command.trim(), searchString: searchString.trim() };
 
     //Add the new entry to the begining in the array of objects
